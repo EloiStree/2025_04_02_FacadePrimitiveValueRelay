@@ -10,7 +10,5 @@ namespace Eloi.Relay
 
     public class RelayMono_Float : AbstractGenericRelayMono<float> { }
 
-
-
 }
 

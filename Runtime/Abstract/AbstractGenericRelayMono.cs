@@ -7,7 +7,8 @@ namespace Eloi.Relay
     public class AbstractGenericRelayMono<T> : MonoBehaviour    {
         public UnityEvent<T> m_onRelayed=new UnityEvent<T>();
         public T m_lastValueRelayed= default;
-        
+
+        [ContextMenu("Push from inspector")]
         public void PushInInspectorLastValue()
         {
             m_onRelayed.Invoke(m_lastValueRelayed);
