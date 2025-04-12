@@ -17,6 +17,7 @@ namespace Eloi.Relay
         {
             m_lastValueRelayed = value;
             m_onRelayed.Invoke(value);
+            HandleDataToRelayInChildren(value);
         }
         public void GetLastValue(out T value)
         {
@@ -25,6 +26,15 @@ namespace Eloi.Relay
         public T GetLastValue()
         {
             return m_lastValueRelayed;
+        }
+
+        protected virtual void HandleDataToRelayInChildren(T dataToHandle) {
+
+            // This method is virtual to be overridden in child classes
+            // and can be used to handle the data before relaying it.
+            // For example, you could modify the data or perform some validation here.
+            // In this base class, we do nothing.
+
         }
     }
 
