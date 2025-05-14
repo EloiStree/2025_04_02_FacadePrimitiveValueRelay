@@ -13,6 +13,11 @@ namespace Eloi.Relay
         {
             m_onRelayed.Invoke(m_lastValueRelayed);
         }
+
+        public void SetValueToRelayWithoutPushing(T value)
+        {
+            m_lastValueRelayed = value;
+        }
         public void PushIn(T value)
         {
             m_lastValueRelayed = value;
