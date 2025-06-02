@@ -30,7 +30,18 @@ namespace Eloi.Relay
         public void PushIn(Vector3 value) => m_onRelayed?.Invoke(string.Format(m_format, value));
         public void PushIn(Vector4 value) => m_onRelayed?.Invoke(string.Format(m_format, value));
         public void PushIn(Quaternion value) => m_onRelayed?.Invoke(string.Format(m_format, value));
-        
+
+
+        public void PushIn(GameObject value) => m_onRelayed?.Invoke(string.Format(m_format, value.name));
+        public void PushIn(Transform value) {
+
+            string r =  value.name;
+            // Display as 0.1 of position and rotation
+            r += string.Format(" [{0:0.0} {1:0.0} {2:0.0}|", value.position.x, value.position.y, value.position.z);
+            r += string.Format(" {0:0.0} {1:0.0} {2:0.0}]", value.rotation.x, value.rotation.y, value.rotation.z);
+            m_onRelayed?.Invoke(r);
+        }
+
 
 
     }
